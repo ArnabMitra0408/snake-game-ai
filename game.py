@@ -12,9 +12,12 @@ class Direction(Enum):
 	UP=3
 	DOWN=4
 
-Point=namedtuple('Point','x','y')
+Point=namedtuple('Point','x,y')
 
 BLOCK_SIZE=20
+SPEED=40
+
+
 class SnakeGame:
 	def __init__(self,w=640,h=480):
 		self.w=w
@@ -53,10 +56,13 @@ class SnakeGame:
 		# place new food or just move
 
 		# update ui and clock
-
+		self.update_ui()
+		self.clock.tick(SPEED)
 		# return game over and score
 		game_over=False
 		return game_over,self.score
+	def _update_ui(self):
+		self.display.fill(BLACK)
 
 
 if __name__ == '__main__':

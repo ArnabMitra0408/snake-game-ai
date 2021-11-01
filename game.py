@@ -5,6 +5,7 @@ from collections import namedtuple
 
 
 pygame.init()
+font=pygame.font.Font('arial.ttf',25)
 
 class Direction(Enum):
 	RIGHT=1
@@ -61,14 +62,20 @@ class SnakeGame:
 		# place new food or just move
 
 		# update ui and clock
-		self.update_ui()
+		self._update_ui()
 		self.clock.tick(SPEED)
 		# return game over and score
 		game_over=False
 		return game_over,self.score
 	def _update_ui(self):
 		self.display.fill(BLACK)
-
+		for pt in self.snake:
+			pygame.draw.rect(self.display,BLUE1,pygame.Rect(pt.x,pt.y,BLOCK_SIZE,BLOCK_SIZE))
+			pygame.draw.rect(self.display,BLUE2,pygame.Rect(pt.x+4,pt.y+4,12,12))
+		pygame.draw.rect(self.display,RED,pygame.Rect(self.food.x,self.food.y,BLOCK_SIZE,BLOCK_SIZE))
+		text=font.render('Score: '+str(self.score),True,WHITE)
+		self.display.blit(text,[0,0])
+		pygame.display.flip()
 
 if __name__ == '__main__':
 	game=SnakeGame()

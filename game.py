@@ -33,21 +33,42 @@ class SnakeGame:
 		self._place_food()
 	def _place_food(self):
 		x=random.randint(0,(self.w-BLOCK_SIZE)//BLOCK_SIZE)*BLOCK_SIZE
-		x=random.randint(0,(self.h-BLOCK_SIZE)//BLOCK_SIZE)*BLOCK_SIZE
+		y=random.randint(0,(self.h-BLOCK_SIZE)//BLOCK_SIZE)*BLOCK_SIZE
+		self.food=Point(x,y)
+		if self.food in self.snake:
+			self._place_food()
+
 
 
 
 
 
 	def play_step(self):
-		pass
+		# Collect user input
+
+		# move 
+
+		#check if game over
+
+		# place new food or just move
+
+		# update ui and clock
+
+		# return game over and score
+		game_over=False
+		return game_over,self.score
+
 
 if __name__ == '__main__':
 	game=SnakeGame()
 
 	##game loop
 	while True:
-		game.play_step()
+		game_over,score=game.play_step()
+
 		# check for game over and then break
+		if game_over==True:
+			break
+	print('FinalScore',score)
 
 	pygame.quit()

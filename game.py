@@ -1,5 +1,9 @@
 import pygame
 import random
+
+
+pygame.init()
+
 class SnakeGame:
 	def __init__(self,w=640,h=480):
 		self.w=w

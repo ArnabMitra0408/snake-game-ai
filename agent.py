@@ -6,9 +6,9 @@ from game import SnakeGameAI, Direction, Point
 from model import Linear_QNet, QTrainer
 from helper import plot
 
-MAX_MEMORY = 1000
-BATCH_SIZE = 512
-LR = 0.003
+MAX_MEMORY = 100_000
+BATCH_SIZE = 1000
+LR = 0.0015
 
 class Agent:
 

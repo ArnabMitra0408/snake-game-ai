@@ -23,7 +23,7 @@ BLUE1=(0,0,255)
 BLUE2=(0,100,255)
 BLACK=(0,0,0)
 
-
+arnab=0
 class SnakeGame:
 	def __init__(self,w=640,h=480):
 		self.w=w
